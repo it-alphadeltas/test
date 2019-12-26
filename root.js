@@ -1,4 +1,4 @@
-var pixelator_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "basic", "plx_plan": { "optin": false, "popular": true, "price": 49.95, "ui": { "color": "#009C41", "border": "#11aa51" }, "limits": { "pixels": 10, "Niche Tracking Tags": "Unlimited", "analytics": "2 Months", "Auto Catalog Feed": "", "Custom Diagnosis": "", "Scripts & Coding": "Basic", "Feed Options": "Advanced", "FB Audience Builder": "Advanced", "Time Based Events": "Basic" } }, "baseURL": "https:\/\/entb91moq3r0a.x.pipedream.net", "pixels": [{ "id": 57829, "pixel_id": "247710575985785", "type": "master", "context": [""], "enabled": true, "month_ago": "2019-11-25T14:22:47Z" }], "logging": true, "proxy": "a\/plx", "id": 5940, "enabled": true, "ic_switch": true, "report_variants": false, "advance_matching": true, "microdata": true, "value_reporting": false, "reporting_percentage": 100, "ajax": true, "after_load": false, "preload_data": true, "time_on_site": false };
+
 ! function(e) {
     var t = {};
 
