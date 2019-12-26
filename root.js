@@ -1,4 +1,4 @@
-var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "basic", "tfx_plan": { "optin": false, "popular": true, "price": 49.95, "ui": { "color": "#009C41", "border": "#11aa51" }, "limits": { "pixels": 10, "Niche Tracking Tags": "Unlimited", "analytics": "2 Months", "Auto Catalog Feed": "", "Custom Diagnosis": "", "Scripts & Coding": "Basic", "Feed Options": "Advanced", "FB Audience Builder": "Advanced", "Time Based Events": "Basic" } }, "baseURL": "https:\/\/entb91moq3r0a.x.pipedream.net", "pixels": [{ "id": 57829, "pixel_id": "247710575985785", "type": "master", "context": [""], "enabled": true, "month_ago": "2019-11-25T14:22:47Z" }], "logging": true, "proxy": "a\/tfx", "id": 5940, "enabled": true, "ic_switch": true, "report_variants": false, "advance_matching": true, "microdata": true, "value_reporting": false, "reporting_percentage": 100, "ajax": true, "after_load": false, "preload_data": true, "time_on_site": false };
+var pixelator_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "basic", "plx_plan": { "optin": false, "popular": true, "price": 49.95, "ui": { "color": "#009C41", "border": "#11aa51" }, "limits": { "pixels": 10, "Niche Tracking Tags": "Unlimited", "analytics": "2 Months", "Auto Catalog Feed": "", "Custom Diagnosis": "", "Scripts & Coding": "Basic", "Feed Options": "Advanced", "FB Audience Builder": "Advanced", "Time Based Events": "Basic" } }, "baseURL": "https:\/\/entb91moq3r0a.x.pipedream.net", "pixels": [{ "id": 57829, "pixel_id": "247710575985785", "type": "master", "context": [""], "enabled": true, "month_ago": "2019-11-25T14:22:47Z" }], "logging": true, "proxy": "a\/plx", "id": 5940, "enabled": true, "ic_switch": true, "report_variants": false, "advance_matching": true, "microdata": true, "value_reporting": false, "reporting_percentage": 100, "ajax": true, "after_load": false, "preload_data": true, "time_on_site": false };
 ! function(e) {
     var t = {};
 
@@ -111,7 +111,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                             }(e, o, t, r) : 200 === e.status && -1 != ["json", "document"].indexOf(i) && n.resolve(e, o, t, r, "ajax")
                         }
                         e = XMLHttpRequest.prototype.open, XMLHttpRequest.prototype.open = function(t, n) {
-                            if (-1 != n.indexOf("ref=tfx")) return e.apply(this, arguments), !0;
+                            if (-1 != n.indexOf("ref=plx")) return e.apply(this, arguments), !0;
                             var i = this;
                             i.addEventListener("readystatechange", function e() { 4 === i.readyState && (r(i, t, n), i.removeEventListener("readyStateChange", e)) }), e.apply(i, arguments)
                         }, t = XMLHttpRequest.prototype.send, XMLHttpRequest.prototype.send = function() {
@@ -180,8 +180,8 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                             var t = {};
                             e.checkout.line_items.forEach(function(e) {
                                 var n = e.hasOwnProperty("variant_id") ? e.variant_id : null;
-                                t = { content_type: r.config.report_variants && null != n ? "product" : "product_group", content_ids: [r.config.report_variants && null != n ? n : e.product_id], value: r.config.value_reporting ? e.price : "0.00", content_name: "Trackify AddToCart: " + r.config.tags.join(" "), content_timedata: r.events.timeNow(), currency: window.ShopifyAnalytics.meta.currency, contents: [{ id: r.config.report_variants && null != n ? n : e.product_id, name: e.title, quantity: e.quantity }] }, r.events.fire("AddToCart", t)
-                            }), r.config.ic_switch && !r.config.aborts.IC && (t.content_name = "Trackify InitiateCheckout: " + r.config.tags.join(" "), r.events.fire("InitiateCheckout", t))
+                                t = { content_type: r.config.report_variants && null != n ? "product" : "product_group", content_ids: [r.config.report_variants && null != n ? n : e.product_id], value: r.config.value_reporting ? e.price : "0.00", content_name: "Pixelator AddToCart: " + r.config.tags.join(" "), content_timedata: r.events.timeNow(), currency: window.ShopifyAnalytics.meta.currency, contents: [{ id: r.config.report_variants && null != n ? n : e.product_id, name: e.title, quantity: e.quantity }] }, r.events.fire("AddToCart", t)
+                            }), r.config.ic_switch && !r.config.aborts.IC && (t.content_name = "Pixelator InitiateCheckout: " + r.config.tags.join(" "), r.events.fire("InitiateCheckout", t))
                         }
                     }
                 }, {
@@ -269,7 +269,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                                 d = null == t || null == h ? 1 : h,
                                 p = null != s ? "title" in s ? s.title : "public_title" in s ? s.public_title : t.title : t.title;
                             null == p && "name" in s && (p = s.name);
-                            var g = { content_type: i.config.report_variants && null != s ? "product" : "product_group", content_ids: [i.config.report_variants && null != s ? s.id : t.id], value: i.config.value_reporting ? l : "0.00", content_name: "Trackify " + e + ": " + ("string" == typeof c ? c : i.uniqueItems(c).join(" ")), content_collections: i.uniqueItems(u).join(" "), content_timedata: f, currency: window.ShopifyAnalytics.meta.currency, content_category: "product_type" in t ? t.product_type : t.type, contents: [{ id: i.config.report_variants && null != s ? s.id : t.id, name: "Default Title" == p || null == p ? t.title : p, quantity: d }] };
+                            var g = { content_type: i.config.report_variants && null != s ? "product" : "product_group", content_ids: [i.config.report_variants && null != s ? s.id : t.id], value: i.config.value_reporting ? l : "0.00", content_name: "Pixelator " + e + ": " + ("string" == typeof c ? c : i.uniqueItems(c).join(" ")), content_collections: i.uniqueItems(u).join(" "), content_timedata: f, currency: window.ShopifyAnalytics.meta.currency, content_category: "product_type" in t ? t.product_type : t.type, contents: [{ id: i.config.report_variants && null != s ? s.id : t.id, name: "Default Title" == p || null == p ? t.title : p, quantity: d }] };
                             n(g)
                         })
                     }
@@ -284,7 +284,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                         var u = this.timeNow(),
                             s = r.length > 0 && /^\d+$/.test(r[1].value) ? r[1].value : 1,
                             l = null != c ? this.calcPrice(c.price) : i.price;
-                        return l *= s, { content_type: this.config.report_variants && null != c ? "product" : "product_group", content_ids: [this.config.report_variants && null != c ? o : i.id], value: t ? this.calcPrice(l) : "0.00", content_name: "Trackify PG " + e + ": " + this.uniqueItems(a).join(" "), content_collections: this.uniqueItems(this.config.collections).join(" "), content_timedata: u, currency: window.ShopifyAnalytics.meta.currency, content_category: i.type, contents: [{ id: this.config.report_variants && null != o ? o : i.id, name: i.title, quantity: s }] }
+                        return l *= s, { content_type: this.config.report_variants && null != c ? "product" : "product_group", content_ids: [this.config.report_variants && null != c ? o : i.id], value: t ? this.calcPrice(l) : "0.00", content_name: "Pixelator PG " + e + ": " + this.uniqueItems(a).join(" "), content_collections: this.uniqueItems(this.config.collections).join(" "), content_timedata: u, currency: window.ShopifyAnalytics.meta.currency, content_category: i.type, contents: [{ id: this.config.report_variants && null != o ? o : i.id, name: i.title, quantity: s }] }
                     }
                 }, {
                     key: "PagesViewContent",
@@ -300,7 +300,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                         u.forEach(function(e) { a += e.price, c = e.hasOwnProperty("variants") && e.variants.length > 0 && e.hasOwnProperty("variant_id") ? e.variants.findIndex(function(t) { return t.id === e.variant_id }) : null, r.push(e.type), i.push(n.config.report_variants && null != c ? c : e.id), o.push({ id: n.config.report_variants && null != c ? e.variant_id : e.id, name: e.title, quantity: 1, item_price: n.calcPrice(e.price), item_category: e.type }) });
                         var s = n.config.tags,
                             l = n.config.collections,
-                            f = { content_type: n.config.report_variants && null != c ? "product" : "product_group", content_category: n.uniqueItems(r).join(" "), num_items: u.length, currency: ShopifyAnalytics.meta.currency, value: n.config.value_reporting ? n.calcPrice(a) : 0, content_name: "Trackify PG ViewContent: " + n.uniqueItems(s).join(" "), content_collections: n.uniqueItems(l).join(" "), content_ids: i, content_timedata: n.timeNow(), contents: o };
+                            f = { content_type: n.config.report_variants && null != c ? "product" : "product_group", content_category: n.uniqueItems(r).join(" "), num_items: u.length, currency: ShopifyAnalytics.meta.currency, value: n.config.value_reporting ? n.calcPrice(a) : 0, content_name: "Pixelator PG ViewContent: " + n.uniqueItems(s).join(" "), content_collections: n.uniqueItems(l).join(" "), content_ids: i, content_timedata: n.timeNow(), contents: o };
                         n.fire("ViewContent", f)
                     }
                 }, {
@@ -314,11 +314,11 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                             u = null;
                         o.variants.forEach(function(e) {-1 == Object.values(e).indexOf(parseInt(a)) || (u = e) });
                         var s = "";
-                        window.hasOwnProperty("OCUConfig") && null != window.OCUConfig.trackify && window.OCUConfig.trackify.transactions.forEach(function(e) { "offered" != e.status || (s = r.eventType(e)) });
+                        window.hasOwnProperty("OCUConfig") && null != window.OCUConfig.pixelator && window.OCUConfig.pixelator.transactions.forEach(function(e) { "offered" != e.status || (s = r.eventType(e)) });
                         var l = null != u ? r.calcPrice(u.price) : o.price,
                             f = r.timeNow(),
                             h = i.quantity;
-                        return { content_type: r.config.report_variants && null != u ? "product" : "product_group", content_ids: [r.config.report_variants && null != u ? a : o.id], value: t ? l : "0.00", content_name: "Trackify OCU " + s + e + ": " + r.uniqueItems(c).join(" "), content_timedata: f, currency: window.ShopifyAnalytics.meta.currency, content_category: null != n ? n.product_type : o.type, contents: [{ id: r.config.report_variants && null != u ? null != n ? n.variant_id : a : o.id, name: null != n ? n.product_title : u.hasOwnProperty("name") ? u.name : o.title, quantity: h, item_price: l, item_category: null != n ? n.product_type : o.type }] }
+                        return { content_type: r.config.report_variants && null != u ? "product" : "product_group", content_ids: [r.config.report_variants && null != u ? a : o.id], value: t ? l : "0.00", content_name: "Pixelator OCU " + s + e + ": " + r.uniqueItems(c).join(" "), content_timedata: f, currency: window.ShopifyAnalytics.meta.currency, content_category: null != n ? n.product_type : o.type, contents: [{ id: r.config.report_variants && null != u ? null != n ? n.variant_id : a : o.id, name: null != n ? n.product_title : u.hasOwnProperty("name") ? u.name : o.title, quantity: h, item_price: l, item_category: null != n ? n.product_type : o.type }] }
                     }
                 }, {
                     key: "toObj",
@@ -341,7 +341,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                             c = r.timeNow(),
                             u = [],
                             s = [];
-                        return r.j.each(i.items, function(e, t) { s.push(r.config.report_variants ? t.id : t.product_id), u.push({ id: r.config.report_variants ? t.id : t.product_id, name: t.title, quantity: t.quantity, item_price: r.calcPrice(t.line_price), item_category: t.product_type }) }), { content_type: r.config.report_variants ? "product" : "product_group", content_ids: s, value: t ? o : "0.00", discount: a, content_name: "Trackify " + e + ": " + r.uniqueItems(r.config.tags).join(" "), content_collections: r.uniqueItems(r.config.collections).join(" "), content_timedata: c, currency: i.currency, contents: u, num_items: i.items.length }
+                        return r.j.each(i.items, function(e, t) { s.push(r.config.report_variants ? t.id : t.product_id), u.push({ id: r.config.report_variants ? t.id : t.product_id, name: t.title, quantity: t.quantity, item_price: r.calcPrice(t.line_price), item_category: t.product_type }) }), { content_type: r.config.report_variants ? "product" : "product_group", content_ids: s, value: t ? o : "0.00", discount: a, content_name: "Pixelator " + e + ": " + r.uniqueItems(r.config.tags).join(" "), content_collections: r.uniqueItems(r.config.collections).join(" "), content_timedata: c, currency: i.currency, contents: u, num_items: i.items.length }
                     }
                 }, {
                     key: "timeNow",
@@ -392,7 +392,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
 
                         function r(t) {
                             if (e.config.aborts.addToCart) return !0;
-                            e.config.aborts.addToCart = !0, setTimeout(function() { e.config.aborts.addToCart = !1 }, 3e3), e.buildProductData("AddToCart", void 0, function(t) { e.hook.writeCookie("tfx_atc", t, 5, "seconds"), e.fire("AddToCart", t), e.hook.deleteCookie("tfx_atc"), setTimeout(function() { e.hook.preserveCart() }, 1e3) }, this.form)
+                            e.config.aborts.addToCart = !0, setTimeout(function() { e.config.aborts.addToCart = !1 }, 3e3), e.buildProductData("AddToCart", void 0, function(t) { e.hook.writeCookie("plx_atc", t, 5, "seconds"), e.fire("AddToCart", t), e.hook.deleteCookie("plx_atc"), setTimeout(function() { e.hook.preserveCart() }, 1e3) }, this.form)
                         }
                     }
                 }, {
@@ -402,7 +402,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                         if (0 == (!!window.hasOwnProperty("productJSON") && window.productJSON)) return !0;
                         var t = {};
                         e.hook.waitForElem("form[data-zp-add-to-cart-form]", function() {
-                            e.j("form[data-zp-add-to-cart-form] button[type=submit]").attr("eve", "tfx").one(e.config.eventTrigger, function(n) {
+                            e.j("form[data-zp-add-to-cart-form] button[type=submit]").attr("eve", "plx").one(e.config.eventTrigger, function(n) {
                                 var r = e.j(this).closest("form"),
                                     i = r.attr("data-productid"),
                                     o = r.serializeArray();
@@ -448,14 +448,14 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                             if ("mouseover" == t.type) {
                                 var n = i(),
                                     r = e.fetchCartData("InitiateCheckout", e.config.value_reporting, n);
-                                return e.hook.writeCookie("tfx_ic", r, 10, "seconds"), !0
+                                return e.hook.writeCookie("plx_ic", r, 10, "seconds"), !0
                             }
                             if (e.config.aborts.IC) return !0;
 
                             function i() { if ("/cart" != e.config.crntPage) { var t = e.hook.decr("tkfyOrder"); return null != t ? t.cart : void 0 } } e.config.aborts.IC = !0,
                                 function(t) {
                                     var n = e.fetchCartData("InitiateCheckout", e.config.value_reporting, t);
-                                    e.fire("InitiateCheckout", n), e.hook.deleteCookie("tfx_ic")
+                                    e.fire("InitiateCheckout", n), e.hook.deleteCookie("plx_ic")
                                 }(i())
                         }
                         e.hook.waitForElem(i, function() { e.j(r.join(",")).one(e.config.eventTrigger + " mouseover", o) }, 15e3), e.j("body").one(e.config.eventTrigger, r.join(","), o), e.j("body").one(e.config.eventTrigger, 'a[href="/checkout"]', o)
@@ -509,7 +509,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                     value: function() {
                         var e = this;
                         if ("/checkout/payment" == e.config.crntPage && null != e.doc.querySelector(e.paymentDetails) && e.hook.waitForElem("form[data-payment-form]", function() {
-                                e.j("form[data-payment-form] button[type=submit]").attr("eve", "tfx").one("click", function(t) {
+                                e.j("form[data-payment-form] button[type=submit]").attr("eve", "plx").one("click", function(t) {
                                     var n = e.fetchCartData("AddPaymentInfo", e.config.value_reporting);
                                     e.fire("AddPaymentInfo", n)
                                 })
@@ -540,7 +540,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                                 n.push(c.product_type), r.push(e.config.report_variants && null != f ? t.variant_id : t.product_id), i = i.concat(u), o = o.concat(s), a.push({ id: e.config.report_variants && null != f ? t.variant_id : t.product_id, name: "" !== t.variant_title ? t.variant_title : t.title, quantity: t.quantity, item_price: e.calcPrice(t.price, !0), item_category: c.product_type })
                             });
                             var c = null != t.credit_card ? t.credit_card.brand : "other",
-                                u = { content_type: e.config.report_variants ? "product" : "product_group", content_category: e.uniqueItems(n).join(" "), num_items: t.line_items.length, order_id: t.order_id, currency: t.currency, discount: t.hasOwnProperty("discount") ? t.discount : "", value: e.calcPrice(t.total_price, !0), content_name: "Trackify Purchase: " + e.uniqueItems(i).join(" "), content_collections: e.uniqueItems(o).join(" "), content_pmtmethod: c, content_ids: r, content_timedata: e.timeNow(), contents: a };
+                                u = { content_type: e.config.report_variants ? "product" : "product_group", content_category: e.uniqueItems(n).join(" "), num_items: t.line_items.length, order_id: t.order_id, currency: t.currency, discount: t.hasOwnProperty("discount") ? t.discount : "", value: e.calcPrice(t.total_price, !0), content_name: "Pixelator Purchase: " + e.uniqueItems(i).join(" "), content_collections: e.uniqueItems(o).join(" "), content_pmtmethod: c, content_ids: r, content_timedata: e.timeNow(), contents: a };
                             if (e.fire("Purchase", u), e.hook.writeCookie("TkfyCheckout" + t.order_id, { status: !0 }, 60), t.hasOwnProperty("email") && e.notEmpty(t.email)) {
                                 var s = null == t.shipping_address ? {} : t.shipping_address,
                                     l = s.hasOwnProperty("phone") && null != s.phone ? s.phone.replace(/[^0-9]/g, "") : "";
@@ -563,8 +563,8 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                                 c = [],
                                 u = null,
                                 s = "";
-                            if (window.hasOwnProperty("OCUConfig") && null != window.OCUConfig.trackify) {
-                                var l = window.OCUConfig.trackify.transactions;
+                            if (window.hasOwnProperty("OCUConfig") && null != window.OCUConfig.pixelator) {
+                                var l = window.OCUConfig.pixelator.transactions;
                                 if (l.forEach(function(e, n) { if ("offered" != e.status) { if ("thank_you_page" == l[0].status) { if (1 == l.length) return void(t = 0); for (var r = l.length; r--;) { if ("declined" == l[r].status) return; if ("bought" == l[r].status) return void(t = r) } } } else "skipped" != l[t = n - 1].status || "bought" != l[t - 1].status && "completed" != l[t - 1].status || (t -= 1) }), null == (n = null != l[t] ? l[t] : null) || "bought" != n.status && "completed" != n.status && "thank_you_page" != n.status) return;
                                 s = e.eventType(n), n.items.forEach(function(t) {
                                     t.done = !1, e.hook.jax(window.location.origin + "/products/" + t.product.handle, function(l) {
@@ -578,7 +578,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                                             function() {
                                                 var t = !1;
                                                 if (n.items.forEach(function(e) { 0 == e.done && (t = !0) }), !t) {
-                                                    var l = { content_type: e.config.report_variants && null != u ? "product" : "product_group", content_category: e.uniqueItems(r).join(" "), num_items: n.items.length, order_id: null != window.OCUConfig.trackify.shopify_order_id ? window.OCUConfig.trackify.shopify_order_id : "", currency: window.ShopifyAnalytics.meta.currency, value: e.calcPrice(n.total_amount, !0), content_name: "Trackify OCU " + s + "Purchase: " + e.uniqueItems(o).join(" "), content_collections: e.uniqueItems(a).join(" "), content_pmtmethod: "ocu_" + window.OCUConfig.trackify.payment_method, content_ids: i, content_timedata: e.timeNow(), contents: c };
+                                                    var l = { content_type: e.config.report_variants && null != u ? "product" : "product_group", content_category: e.uniqueItems(r).join(" "), num_items: n.items.length, order_id: null != window.OCUConfig.pixelator.shopify_order_id ? window.OCUConfig.pixelator.shopify_order_id : "", currency: window.ShopifyAnalytics.meta.currency, value: e.calcPrice(n.total_amount, !0), content_name: "Pixelator OCU " + s + "Purchase: " + e.uniqueItems(o).join(" "), content_collections: e.uniqueItems(a).join(" "), content_pmtmethod: "ocu_" + window.OCUConfig.pixelator.payment_method, content_ids: i, content_timedata: e.timeNow(), contents: c };
                                                     e.hook.writeCookie("TkfyOCUEve" + window.location.pathname + window.btoa(window.location.search) + "purchase", { status: !0 }, 60), e.fire("Purchase", l)
                                                 }
                                             }()
@@ -654,7 +654,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                         var r = null != e ? e : "ShopifyAnalytics" in window && "meta" in window.ShopifyAnalytics && "product" in window.ShopifyAnalytics.meta ? window.ShopifyAnalytics.meta.product : this.config.pageData.product;
                         if (null != r) return n(r), !0;
                         var i = d.a.extractProductID(t),
-                            o = this.hook.decr("tfx_preload");
+                            o = this.hook.decr("plx_preload");
                         if (null != o) {
                             for (var a in o)
                                 if (a.toString() == i) { r = o[a]; break } if (null != r) return n(r), !0
@@ -691,7 +691,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                 value: function(e) {
                     var t = this.siteTimer + e,
                         n = { content_timeonpage: e, content_timeonsite: t, content_page: this.hook.config.crntPage };
-                    this.events.fire("TrackifyXRetarget", n, !0, !1), sessionStorage.setItem("TFX_TOS", t)
+                    this.events.fire("PixelatorXRetarget", n, !0, !1), sessionStorage.setItem("TFX_TOS", t)
                 }
             }]) && b(t.prototype, n), r && b(t, r), e
         }();
@@ -731,7 +731,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                         }
                         e.prepConfig().then(function() { if (!e.config.enabled) return !0; var n = "Shopify" in window && "checkout" in Shopify; "complete" === e.doc.readyState || n || !e.config.after_load ? t() : window.addEventListener("load", t) })
                     }
-                }, { key: "prepConfig", value: function() { var e = this; return new Promise(function(t, n) { var r = window.trackify_x; /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && (e.config.isMobile = !0), e.config.isMobile || (e.config.eventTrigger = "click"), "" != e.getUrlParameter("event_trigger") && (e.config.eventTrigger = e.getUrlParameter("event_trigger")), null != r ? (Object.assign(e.config, r), t()) : this.getUserConfig(function(n) { Object.assign(e.config, n), t() }) }) } }, {
+                }, { key: "prepConfig", value: function() { var e = this; return new Promise(function(t, n) { var r = window.pixelator_x; /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && (e.config.isMobile = !0), e.config.isMobile || (e.config.eventTrigger = "click"), "" != e.getUrlParameter("event_trigger") && (e.config.eventTrigger = e.getUrlParameter("event_trigger")), null != r ? (Object.assign(e.config, r), t()) : this.getUserConfig(function(n) { Object.assign(e.config, n), t() }) }) } }, {
                     key: "initPixels",
                     value: function(e) {
                         var t = this;
@@ -838,7 +838,7 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                     value: function(e, t, n) {
                         var r = this,
                             i = new XMLHttpRequest;
-                        n = null == n ? "json" : n, i.responseType = n, e += -1 == e.indexOf("?") ? "?ref=tfx" : "&ref=tfx", i.addEventListener("readystatechange", function() { 4 === i.readyState && t.call(r, this.response) }), i.open("GET", e, !0), i.send()
+                        n = null == n ? "json" : n, i.responseType = n, e += -1 == e.indexOf("?") ? "?ref=plx" : "&ref=plx", i.addEventListener("readystatechange", function() { 4 === i.readyState && t.call(r, this.response) }), i.open("GET", e, !0), i.send()
                     }
                 }, {
                     key: "jsonp",
@@ -1034,21 +1034,21 @@ var trackify_x = { "shop_id": 5967, "shop": "ledhop.myshopify.com", "plan": "bas
                         });
                         var n = [],
                             r = [];
-                        if (1 == t.length && "product" == e.config.crntPage) { var i = {}; return i[t[0]] = e.config.pageData.product, e.encr("tfx_preload", i), !0 } e.prepProducts(t, function(t) {
+                        if (1 == t.length && "product" == e.config.crntPage) { var i = {}; return i[t[0]] = e.config.pageData.product, e.encr("plx_preload", i), !0 } e.prepProducts(t, function(t) {
                             for (var i in t) {
                                 var o = t[i];
                                 n = n.concat(o.tags), r = r.concat(o.collections)
                             }
                             e.config.tags = e.config.tags.concat(n), e.config.collections = e.config.collections.concat(r), e.prepPixels(!0), e.initPixels()
-                        }, "tfx_preload")
+                        }, "plx_preload")
                     }
                 }, {
                     key: "firePrimedEvents",
                     value: function() {
-                        var e = this.readCookie("tfx_atc");
-                        null != e && (this.events.fire("AddToCart", e), this.deleteCookie("tfx_atc"));
-                        var t = this.readCookie("tfx_ic");
-                        null != t && this.config.ic_switch && "checkout-page" == this.config.crntPage && (this.events.fire("InitiateCheckout", t), this.deleteCookie("tfx_ic"))
+                        var e = this.readCookie("plx_atc");
+                        null != e && (this.events.fire("AddToCart", e), this.deleteCookie("plx_atc"));
+                        var t = this.readCookie("plx_ic");
+                        null != t && this.config.ic_switch && "checkout-page" == this.config.crntPage && (this.events.fire("InitiateCheckout", t), this.deleteCookie("plx_ic"))
                     }
                 }]) && k(t.prototype, n), r && k(t, r), e
             }(),
